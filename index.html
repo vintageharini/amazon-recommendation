@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon Recommends — How It Works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="signal"><span class="dot"></span>simulated product recommendations</div>
+    <h1>How Amazon recommends a product</h1>
+    <p>Every product is described by a set of features — category, attributes, who bought it, what else
+    they bought. Recommending is mostly a similarity problem: given what you're looking at, which other
+    items are described by the most overlapping features?</p>
+  </div>
+
+  <div class="module">
+    <div class="explain">
+      <h2>How the real thing works</h2>
+      <ul>
+        <li><b>Content-based filtering</b> — comparing a product's own attributes (category, description,
+        specs) to other products with similar attributes.</li>
+        <li><b>Collaborative filtering</b> — comparing behavior: if many customers who bought A also bought
+        B, B gets recommended to new A buyers, even if A and B look nothing alike on paper.</li>
+        <li><b>Ranking</b> — candidates from both approaches are scored and blended, then re-ranked using
+        your own browsing and purchase history.</li>
+        <li><b>Feedback loop</b> — every click, purchase, and skipped recommendation becomes new training
+        data for the next prediction.</li>
+      </ul>
+      <p class="note">This demo uses a simplified content-based approach: each product has a handful of tags,
+      and similarity is measured by how many tags two products share. Amazon's real system blends this with
+      collaborative signals from hundreds of millions of shoppers.</p>
+    </div>
+
+    <div class="stage">
+      <div class="catalog" id="catalog"></div>
+    </div>
+  </div>
+
+  <div class="recs" id="recsSection" style="display:none;">
+    <h2 id="recsTitle">Because you viewed…</h2>
+    <div class="rec-list" id="recList"></div>
+  </div>
+
+  <div class="footnote">
+    Built as a teaching demo — not the actual code running on any real store. Source on
+    <a href="#">GitHub</a>.
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
